@@ -2,16 +2,22 @@
 name = "youtube-publisher-agent"
 version = "0.1.0"
 description = "YouTube publisher agent for the Agent Platform"
+readme = "README.md"
 requires-python = ">=3.12"
+license = { file = "LICENSE" }
+
 dependencies = [
     "agent-sdk",
-    "google-api-python-client",
-    "google-auth-oauthlib",
-    "google-auth-httplib2",
+    "google-api-python-client>=2",
+    "google-auth-oauthlib>=1",
+    "google-auth-httplib2>=0.2",
 ]
 
-[tool.uv.sources]
-agent-sdk = { git = "https://github.com/willimar/agent-sdk.git" }
+[dependency-groups]
+dev = [
+    "pytest>=8",
+    "pyyaml>=6",
+]
 
 [build-system]
 requires = ["hatchling"]
@@ -19,3 +25,9 @@ build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/youtube_publisher_agent"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.uv.sources]
+agent-sdk = { git = "https://github.com/willimar/agent-sdk.git" }

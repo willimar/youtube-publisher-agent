@@ -1,8 +1,25 @@
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Virtualenv / uv
 .venv/
+.uv/
+
+# Secrets / OAuth
 .env
 client_secret.json
 youtube-token.json
+
+# Logs
 logs/
 *.log
+
+# Local temporary files
+*.tmp
+*.bak
