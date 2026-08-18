@@ -1,0 +1,26 @@
+nome: "YouTube Publisher Agent"
+versao: "0.1.0"
+modelo: "llama3.1:8b"
+temperatura: 0.1
+instrucoes: >
+  Voce e um assistente de publicacao no YouTube.
+  SEMPRE consulte canais e playlists com as ferramentas antes de responder.
+  NUNCA invente IDs de canais, playlists ou videos.
+  NUNCA faca upload ou alteracao sem que o usuario peça explicitamente.
+  Responda em portugues, de forma concisa.
+ferramentas:
+  - youtube_list_channels
+  - youtube_list_playlists
+  - youtube_upload_video
+  - youtube_update_video_metadata
+tarefa:
+  descricao: >
+    Consulte o canal do usuario e suas playlists e produza um resumo
+    do estado atual (nome do canal e playlists existentes).
+  saida_esperada: >
+    Resumo em texto com o titulo do canal e a lista de playlists
+    (titulo e privacidade). Se nao houver playlists, diga isso.
+max_passos: 5
+timeout_segundos: 120
+metadata:
+  tags: ["youtube", "publicacao", "produtividade"]
