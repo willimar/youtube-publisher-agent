@@ -65,7 +65,7 @@ def get_credentials() -> Credentials:
 
     creds: Credentials | None = None
     if token_path.exists():
-        creds = Credentials.from_authorized_file_info(str(token_path), SCOPES)
+        creds = Credentials.from_authorized_user_file(str(token_path), SCOPES)
 
     if not creds or not creds.valid:
         if creds and creds.expired and creds.refresh_token:
